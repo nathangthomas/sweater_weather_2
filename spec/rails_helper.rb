@@ -1,5 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'webmock/rspec'
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
@@ -70,4 +72,14 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+def stub_api_calls
+  #google geocode api
+  google_response = File.open("./fixtures/location_data.json")
+  stub_request(:get, "https://maps.googleapis.com/maps/api/geocode/json?address=denver,co&key=#{ENV['GOOGLE_API_KEY']}").   to_return(status: 200, body: google_response)
+  #darksky weather api
+  dark_sky_response = File.open("./fixtures/dark_sky_data_denver.json")
+  stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/39.7392358,-104.990251?exclude=minutely,alerts,flags&key=AIzaSyCzsGSqCA-uO60TBVVEf74SHHtsq5ugeXE").
+  to_return(status: 200, body: dark_sky_response, headers: {})
 end

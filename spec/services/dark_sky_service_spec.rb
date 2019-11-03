@@ -4,6 +4,7 @@ describe DarkSkyService do
   context "instance methods" do
     context "current weather forecast location (coordinates)" do
       it "returns current weather forecast" do
+        stub_api_calls
         # WebMock.allow_net_connect!
         response = File.read("./fixtures/location_data.json")
         data = JSON.parse(response, symbolize_names: true)
