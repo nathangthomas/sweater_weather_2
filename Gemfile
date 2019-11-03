@@ -41,6 +41,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'shoulda-matchers'
   gem 'webmock'
+  gem 'geocoder'
 
 end
 
