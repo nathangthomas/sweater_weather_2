@@ -3,7 +3,7 @@ require "rails_helper"
 describe FlickrService do
   context 'instance methods' do
     it "returns an image associated with a city" do
-
+    
       image = subject.image_of('denver,co')
 
       expect(image).to be_an Hash
