@@ -1,9 +1,8 @@
 class Location
-  attr_reader :name, :lat, :lng, :coordinates, :city, :state, :country
+  attr_reader :id, :name, :lat, :lng, :coordinates, :city, :state, :country
 
   def initialize(data)
-    # @id = rand(0..999)
-    # @id = nil
+    @id = rand(0..999)
     @name = data[:results][0][:formatted_address]
     @lat = data[:results][0][:geometry][:location][:lat]
     @lng = data[:results][0][:geometry][:location][:lng]

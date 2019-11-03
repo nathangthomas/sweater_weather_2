@@ -1,5 +1,5 @@
 class LocationsFacade
-  attr_reader :id, :name, :lat, :lng, :coordinates, :city, :state, :country
+  attr_reader :id
 
   def initialize(city)
     @city = city
