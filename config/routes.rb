@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      namespace :places do
-        get '/:city', to: 'locations#index'
-      end
+        resources :location, only: :index
+        resources :forecast, only: :index
     end
   end
 end
