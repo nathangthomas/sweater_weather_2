@@ -12,8 +12,7 @@ class LocationsFacade
   private
 
   def data_for(city)
-    # @_data_for ||= GoogleService.new.location_by_city(city)
-    GoogleService.new.location_by_city(city)
+    @_data_for ||= GoogleService.new.location_by_city(city)
   end
 
 end
