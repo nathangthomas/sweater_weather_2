@@ -2,6 +2,7 @@ class ForecastFacade
   attr_reader :id
 
   def initialize(city_state)
+    @id = rand(0..999)
     @city_state = city_state
   end
 
@@ -28,7 +29,7 @@ class ForecastFacade
   end
 
   def flickr_service
-    FlickrService.new.image_of(city_state)
+    FlickrService.new.image_of(@city_state)
   end
 
 end
