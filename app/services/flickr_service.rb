@@ -1,5 +1,5 @@
 class FlickrService
-  def image_for(city)
+  def image_of(city)
     get_json("/services/rest/?text=#{city}, skyline")
   end
 
