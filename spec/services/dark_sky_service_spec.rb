@@ -10,7 +10,7 @@ describe DarkSkyService do
 
         location = Location.new(data)
 
-        forecast_info = subject.current_forecast_by(location)
+        forecast_info = subject.forecast_by(location)
         expect(forecast_info).to be_a Hash
 
         expect(forecast_info[:currently][:summary]).to eq("Clear")

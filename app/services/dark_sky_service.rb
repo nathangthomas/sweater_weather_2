@@ -1,6 +1,6 @@
 class DarkSkyService
 
-  def current_forecast_by(location)
+  def forecast_by(location)
     get_json("https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/#{location.coordinates}?exclude=minutely,alerts,flags")
   end
 
