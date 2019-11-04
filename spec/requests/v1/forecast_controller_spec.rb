@@ -9,6 +9,6 @@ describe 'Dark Ski API' do
     expect(response).to be_successful
     forecast_data = JSON.parse(response.body, symbolize_names: true)
     expect(forecast_data[:data][:attributes].keys).to eq([:currently, :today, :tonight, :hourly, :daily, :timezone, :coordinates])
-    # expect(forecast_data[:data][:attributes].keys).to eq([:location, :currently, :today, :tonight, :hourly, :daily, :timezone, :coordinates])
+
   end
 end
