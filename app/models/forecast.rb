@@ -1,6 +1,6 @@
 class Forecast
-  attr_reader :id, :currently, :today, :tonight, :hourly, :daily, :timezone, :coordinates
-  # attr_reader :id, :location, :currently, :today, :tonight, :hourly, :daily, :timezone, :coordinates
+  # attr_reader :id, :currently, :today, :tonight, :hourly, :daily, :timezone, :coordinates
+  attr_reader :id, :location, :currently, :today, :tonight, :hourly, :daily, :timezone, :coordinates
 
   def initialize(data)
     @id = rand(0..999)
