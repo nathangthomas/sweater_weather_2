@@ -1,6 +1,5 @@
 class Api::V1::AntipodeController < ApplicationController
   def index
-    
     render json: AntipodeSerializer.new(antipode_facade)
   end
 

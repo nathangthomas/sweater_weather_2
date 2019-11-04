@@ -4,6 +4,11 @@ class GoogleService
     get_json("/maps/api/geocode/json?address=#{city}")
   end
 
+  def city_by_coordinates(coords)
+    get_json("/maps/api/geocode/json?latlng=#{coords}")
+    # https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=YOUR_API_KEY
+  end
+
   private
 
   def conn

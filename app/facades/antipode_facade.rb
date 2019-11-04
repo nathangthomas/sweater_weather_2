@@ -4,9 +4,37 @@ class AntipodeFacade
   def initialize(search_location)
     @id = rand(0..999)
     @search_location = search_location
+    @antipode_name = antipode_name
+    @location_name = antipode_name
   end
 
-end
+  def antipode_coordinates
+    location = LocationsFacade.new('hong kong').location
+    Antipode.new(AmypodeService.new.antipode_by(location))
+    location.coordinates
+  end
+
+  def antipode_data
+    GoogleService.new.city_by_coordinates(antipode_data.coordinates)
+  end
+
+  def antipode_name
+    binding.pry
+    antipode_data
+  end
+
+  def antipode_location_info
+
+    # antipode_info = AmypodeService.new.antipode_by(@search_location)
+  end
+    # location_info = LocationsFacade.new('hong kong').location
+    #
+    # antipode_info = subject.antipode_by(location_info)
+
+    # AmypodeService.new.antipode_by(@search_location)
+    # LocationsFacade.new(@search_location).location
+  end
+
   #
   # def forecast
   #   location = location(@city_state)
