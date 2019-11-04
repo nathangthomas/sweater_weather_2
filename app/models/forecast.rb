@@ -26,13 +26,13 @@ class Forecast
     weather
   end
 
-  # def location
-  #   location = Geocoder.search(@coordinates)
-  #   info = location[0].data['address']
-  #   city = info['city']
-  #   state = info['state']
-  #   # zip = info['postcode']
-  #   # country = info['country']
-  #   "#{city}, #{state}"
-  # end
+  def location
+    location = Geocoder.search(@coordinates)
+    info = location[0].data['address']
+    city = info['city']
+    state = info['state']
+    # zip = info['postcode']
+    # country = info['country']
+    "#{city}, #{state}"
+  end
 end
