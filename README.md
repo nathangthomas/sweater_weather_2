@@ -1,24 +1,5 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Available Endpoints
+- `GET '/api/v1/location?location=<city,state>'`
+- `GET '/api/v1/forecast?location=<city,state>'`
+- `GET '/api/v1/backgrounds?location=<city,state>'`
