@@ -7,9 +7,9 @@ class Location
     @lat = data[:results][0][:geometry][:location][:lat]
     @lng = data[:results][0][:geometry][:location][:lng]
     @coordinates = coordinates
-    @city = data[:results][0][:address_components][0][:long_name]
-    @state = data[:results][0][:address_components][2][:short_name]
-    @country = data[:results][0][:address_components][3][:long_name]
+    # @city = data[:results][0][:address_components][0][:long_name]
+    # @state = data[:results][0][:address_components][2][:short_name]
+    # @country = data[:results][0][:address_components][3][:long_name]
   end
 
   def coordinates

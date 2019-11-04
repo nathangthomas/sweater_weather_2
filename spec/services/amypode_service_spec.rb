@@ -7,17 +7,16 @@ describe AmypodeService do
         # stub_api_calls
         WebMock.allow_net_connect!
         # response = File.read("./fixtures/amypode_data_hongkong.json")
-        data = subject.parsed_data
-        location = Antipode.new(data)
-        binding.pry
+        location_info = LocationsFacade.new('hong kong').location
 
-        forecast_info = subject.forecast_by(location)
-        expect(forecast_info).to be_a Hash
+        antipode_info = subject.antipode_by(location_info)
+        # data = subject.parsed_data
+        # location = .new(data)
+
+        expect(antipode_info).to be_a Hash
 
         # expect(forecast_info[:currently][:summary]).to eq("Clear")
-        expect(forecast_info[:currently][:summary]).to eq("Partly Cloudy")
-        expect(forecast_info[:hourly][:summary]).to eq("Partly cloudy throughout the day.")
-        expect(forecast_info[:daily][:summary]).to eq("No precipitation throughout the week.")
+        expect(anipode_info[:data]).to
       end
     end
   end
