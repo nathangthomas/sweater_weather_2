@@ -4,7 +4,7 @@ describe GoogleService do
   context "instance methods" do
     context "coordinates by city and state" do
       it "returns coordinates" do
-        stub_api_calls
+        # stub_denver_location_data
         # WebMock.allow_net_connect!
         location_info = subject.location_by_city('denver,co')
         expect(location_info).to be_a Hash
