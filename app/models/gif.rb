@@ -1,12 +1,12 @@
 class Gif
   attr_reader :id, :time, :summary, :url
 
-  def initialize(gif_data)
+  def initialize(parsed_data, summary, time)
     @id = rand(0..999)
     @gif_data = gif_data
     @url = giphy_url
-    # @time =
-    # @summary =
+    @time = time
+    @summary = summary
   end
 
   def giphy_url
