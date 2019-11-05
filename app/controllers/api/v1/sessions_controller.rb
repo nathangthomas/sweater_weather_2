@@ -6,7 +6,9 @@ class Api::V1::SessionsController < ApplicationController
       render json: UserSerializer.new(user)
 
     else
-      #sad path here
+      render json: {
+        error: "Something went wrong please try again"
+        }, status: :bad_request
     end
   end
 

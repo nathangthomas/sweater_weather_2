@@ -16,5 +16,15 @@ describe "User can sign up for an account" do
     expect(parsed_data[:data][:attributes][:api_key]).to eq("Th15at0Tal1y-RAn20mk3Y")
   end
 
-  #sad path test here
+  it "returns an error" do
+    body = {
+    "email": "whatever@exampl.com",
+    "password": nil
+  }
+    post "/api/v1/users", params: body.as_json
+
+    expect(response).to_not be_successful
+    parsed_data = JSON.parse(response.body, symbolize_names: true)
+    expect(parsed_data[:error]).to eq("Something went wrong please try again.")
+  end
 end
