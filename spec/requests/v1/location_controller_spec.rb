@@ -4,7 +4,7 @@ describe 'Google Geocode API' do
   it "gets location data" do
     WebMock.allow_net_connect!
 
-    get '/api/v1/location?location=denver,co' 
+    get '/api/v1/location?location=denver,co'
 
     expect(response).to be_successful
     location_data = JSON.parse(response.body, symbolize_names: true)

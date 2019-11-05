@@ -14,7 +14,6 @@ describe DarkSkyService do
         forecast_info = subject.forecast_by(location)
         expect(forecast_info).to be_a Hash
 
-        # expect(forecast_info[:currently][:summary]).to eq("Clear")
         expect(forecast_info[:currently][:summary]).to eq("Partly Cloudy")
         expect(forecast_info[:hourly][:summary]).to eq("Partly cloudy throughout the day.")
         expect(forecast_info[:daily][:summary]).to eq("No precipitation throughout the week.")
