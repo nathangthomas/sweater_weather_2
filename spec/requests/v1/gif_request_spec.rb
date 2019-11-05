@@ -8,6 +8,6 @@ describe 'Giphy API' do
 
     expect(response).to be_successful
     gif_data = JSON.parse(response.body, symbolize_names: true)
-    expect(gif_data[:data][:images].keys).to eq([:time, :summary, :url])
+    expect(gif_data[:data][0][:attributes].keys).to eq([:time, :summary, :url])
   end
 end

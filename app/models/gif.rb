@@ -3,7 +3,7 @@ class Gif
 
   def initialize(parsed_data, summary, time)
     @id = rand(0..999)
-    @gif_data = gif_data
+    @gif_data = parsed_data
     @url = giphy_url
     @time = time
     @summary = summary

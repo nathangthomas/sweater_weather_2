@@ -11,5 +11,6 @@ describe Gif do
 
     expect(gif).to be_a Gif
     expect(gif.url).to eq("https://giphy.com/gifs/dark-castle-63xBFHKNVjZlu")
+    expect(gif.summary).to eq("Mostly cloudy throughout the day")
   end
 end
