@@ -2,8 +2,9 @@ require "rails_helper"
 
 describe GiphyService do
   context 'instance methods' do
-    it "returns a giph associated with a city" do
-      WebMock.allow_net_connect!
+    it "returns a gif associated with a city" do
+      # stub_giphy_data
+      # WebMock.allow_net_connect!
 
       gif_data = subject.gif_by('Mostly cloudy throughout the day')
       gif = JSON.parse(gif_data.body, symbolize_names: true)
