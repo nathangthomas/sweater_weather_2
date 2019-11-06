@@ -20,7 +20,6 @@ describe GoogleService do
       directions_info = subject.time_to_travel_between('Denver,CO', 'Pueblo,CO')
       expect(directions_info).to be_a Hash
       expect(directions_info[:routes][0][:legs][0][:duration].keys).to eq([:text, :value])
-      #more tests to come
     end
   end
 end

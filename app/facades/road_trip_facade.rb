@@ -1,14 +1,13 @@
 class RoadTripFacade
-  attr_reader :id
+  attr_reader :id, :travel_time, :forecast_upon_arrival
 
   def initialize(params)
+    @id = rand(0..99)
     @origin = params[:origin]
     @destination = params[:destination]
     @travel_time = travel_time_text
     @forecast_upon_arrival = forecast_upon_arrival
   end
-
-private
 
   def forecast_upon_arrival
     hourly_forecast = destination_current_forecast.hourly
@@ -16,6 +15,9 @@ private
       hour[:time] >= arrival_time
     end
   end
+  
+private
+
 
   def destination_current_forecast
     forecast_data = DarkSkyService.new.forecast_by(location)

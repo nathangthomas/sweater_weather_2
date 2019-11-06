@@ -14,12 +14,11 @@ describe 'Road Trip' do
       "destination": "Pueblo,CO",
       "api_key": "#{user.api_key}"
     }
-    
+
     post '/api/v1/road_trip', params: body.as_json
 
     expect(response).to be_successful
-    image_data = JSON.parse(response.body, symbolize_names: true)
-
-    #come back and fill in tests
+    road_trip_data = JSON.parse(response.body, symbolize_names: true)
+    expect(road_trip_data[:data][:attributes].keys).to eq([:travel_time, :forecast_upon_arrival])
   end
 end

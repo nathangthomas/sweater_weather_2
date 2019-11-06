@@ -12,8 +12,7 @@ class Api::V1::RoadTripController < ApplicationController
 private
 
   def road_trip_facade
-    facade = RoadTripFacade.new(params)
-    # facade.location
+    RoadTripFacade.new(params)
   end
 
 end
