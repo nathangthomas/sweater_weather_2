@@ -24,7 +24,7 @@ class ForecastFacade
     LocationsFacade.new(city_state).location
   end
 
-  def image_for(city_state)
+  def image_for
     @_image_for ||= flickr_service
   end
 

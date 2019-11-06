@@ -5,7 +5,7 @@ class Api::V1::RoadTripController < ApplicationController
     if user
       render json: RoadTripSerializer.new(road_trip_facade)
     else
-      render json: { error: "You API key is invalid." }, status: :unauthorized
+      render json: { error: "Your API key is invalid." }, status: :unauthorized
     end
   end
 
