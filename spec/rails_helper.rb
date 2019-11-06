@@ -1,19 +1,16 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+require 'webmock/rspec'
+require 'securerandom'
+WebMock.disable_net_connect!(allow_localhost: true)
 
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
 
-require 'simplecov'
-SimpleCov.start
-
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
-require 'securerandom'
-require 'webmock/rspec'
-
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -69,28 +66,24 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
+require 'shoulda/matchers'
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
+  with.test_framework :rspec
+  with.library :rails
   end
 end
 
-  def stub_denver_location_data
-    # google geocode api
-    google_response = File.open("./fixtures/location_data.json")
-    stub_request(:get, "https://maps.googleapis.com/maps/api/geocode/json?address=denver,co&key=#{ENV['GOOGLE_API_KEY']}").
-    to_return(status: 200, body: google_response)
-  end
-
-  def stub_denver_dark_sky_data
-    # darksky weather api
-    dark_sky_response = File.open("./fixtures/dark_sky_data_denver.json")
-    stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/39.7392358,-104.990251?exclude=minutely,alerts,flags&key=AIzaSyCzsGSqCA-uO60TBVVEf74SHHtsq5ugeXE").to_return(status: 200, body: dark_sky_response)
-  end
-
-  def stub_giphy_data
-    # giphy gif api
-    dark_sky_response = File.open("./fixtures/giphy_data.json")
-    stub_request(:get, "https://api.giphy.com/v1/gifs/search?api_key=#{ENV['GIPHY_API_KEY']}&limit=1&q='Mostly cloudy throughout the day.'").to_return(status: 200, body: dark_sky_response)
-  end
+def stub_api_calls
+  #google geocode api
+  google_response = File.open("./fixtures/location_data.json")
+  stub_request(:get, "https://maps.googleapis.com/maps/api/geocode/json?address=denver,co&key=#{ENV['GOOGLE_API_KEY']}").   to_return(status: 200, body: google_response)
+  #darksky weather api
+  dark_sky_response = File.open("./fixtures/dark_sky_data_denver.json")
+  stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARK_SKY_API_KEY']}/39.7392358,-104.990251?exclude=minutely,alerts,flags&key=AIzaSyCzsGSqCA-uO60TBVVEf74SHHtsq5ugeXE").
+  to_return(status: 200, body: dark_sky_response, headers: {})
+  # giphy gif api
+  giphy_response = File.open("./fixtures/giphy_data.json")
+  stub_request(:get, "https://api.giphy.com/v1/gifs/search?api_key=#{ENV['GIPHY_API_KEY']}&limit=1&q='Mostly cloudy throughout the day.'").to_return(status: 200, body: giphy_response)
+end

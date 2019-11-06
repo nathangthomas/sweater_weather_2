@@ -3,7 +3,7 @@ require 'rails_helper'
 describe GoogleService do
   context "instance methods" do
     it "returns coordinates by city and state" do
-      # stub_denver_location_data
+      stub_api_calls
       # WebMock.allow_net_connect!
       location_info = subject.location_by_city('denver,co')
       expect(location_info).to be_a Hash
