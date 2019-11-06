@@ -31,4 +31,4 @@
 - `GET '/api/v1/backgrounds?location=<city,state>'` (returns a background image for a given city)
 - `GET '/api/v1/antipode?location=<search_param>'` (returns a location's antipode and it's weather) -- don't forget to merge this from your assessment branch
 - `GET '/api/v1/gifs?location=<city,state>'` (returns a gif related to the forecast for each hour of the day)
-- `POST '/api/v1/road_trip'` (pass origin and destination in body - returns estimated travel time and the weather for your time of arrival)
+- `POST '/api/v1/road_trip'` (pass origin, destination, and api_key in body - returns estimated travel time and the weather for your time of arrival)
