@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :location, only: :index
       resources :forecast, only: :index
       resources :backgrounds, only: :index
+      resources :road_trip, only: :create
       resources :gifs, only: :index
       resources :users, only: :create
       resources :sessions, only: :create

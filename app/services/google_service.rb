@@ -4,6 +4,10 @@ class GoogleService
     get_json("/maps/api/geocode/json?address=#{city}")
   end
 
+  def time_to_travel_between(origin, destination)
+    get_json("/maps/api/directions/json?origin=#{origin}&destination=#{destination}")
+  end
+
   private
 
   def conn
