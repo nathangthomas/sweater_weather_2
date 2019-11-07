@@ -15,7 +15,7 @@
 6. You can run test suite with `$ bundle exec rspec`
 7. Start a local server with `$ rails s` and access Sweater Weather in your browser at localhost:3000
 8. You can also interact with Sweater Weather here => https://ancient-fortress-22550.herokuapp.com/
-
+``
 
 ## Available Endpoints
 

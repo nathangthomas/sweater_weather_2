@@ -1,8 +1,11 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'webmock/rspec'
+# require 'webmock/rspec'
 require 'securerandom'
-WebMock.disable_net_connect!(allow_localhost: true)
+# WebMock.disable_net_connect!(allow_localhost: true)
+
+require 'simplecov'
+SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
 
